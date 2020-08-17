@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_bottom_nav_home"
+        android:title="@string/str_home"
+        android:icon="@drawable/ic_icons8_home"
+        />
+    <item
+        android:id="@+id/menu_bottom_nav_parcels"
+        android:title="@string/str_parcels"
+        android:icon="@drawable/ic_icons8_cardboard_box"
+        />
+    <item
+        android:id="@+id/menu_bottom_nav_deliver"
+        android:title="@string/str_deliver"
+        android:icon="@drawable/ic_icons8_delivery"
+        />
+    <item
+        android:id="@+id/menu_bottom_nav_notifications"
+        android:title="@string/str_notifications"
+        android:icon="@drawable/ic_icons8_notification"
+        />
+</menu>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="180dp"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="7dp">
+
+    <LinearLayout
+        android:id="@+id/item_parcel_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/AppTheme">
+            <ImageView
+                android:id="@+id/item_parcel_image"
+                android:layout_width="match_parent"
+                android:layout_height="225dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/colis_2"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/item_parcel_image"
+                android:orientation="vertical"
+                android:layout_alignBottom="@id/item_parcel_image"
+                android:background="#8B000000"
+                android:padding="8dp">
+                <TextView
+                    android:id="@+id/item_parcel_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chemise et montre élec..."
+                    android:textSize="13sp"
+                    android:fontFamily="@font/samsung_sans_medium"
+                    android:textColor="@android:color/white"/>
+
+                <TextView
+                    android:id="@+id/item_parcel_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1500 FCFA"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/samsung_sans_medium"
+                    android:textColor="@color/colorPrimary"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="3dp">
+                    <ImageView
+                        android:layout_width="23dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_icons8_active_state"
+                        android:tint="@android:color/white"/>
+                    <TextView
+                        android:id="@+id/item_parcel_from"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Akwa, Douala"
+                        android:fontFamily="@font/samsung_sans_medium"
+                        android:textSize="12sp"
+                        android:textColor="@android:color/white"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="3dp">
+                    <ImageView
+                        android:layout_width="23dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_icons8_final_state"
+                        android:tint="@android:color/white"/>
+                    <TextView
+                        android:id="@+id/item_parcel_destination"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Logpom, Douala"
+                        android:fontFamily="@font/samsung_sans_medium"
+                        android:textSize="12sp"
+                        android:textColor="@android:color/white"/>
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+            <ImageButton
+                android:id="@+id/item_parcel_engaged_icon"
+                android:layout_width="35dp"
+                android:layout_height="30dp"
+                android:src="@drawable/button_icon_engaged"
+                android:background="@android:color/white"/>
+            <ImageButton
+                android:id="@+id/item_parcel_favorite_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/button_icon_favorite"
+                android:background="@android:color/white"
+                android:layout_toEndOf="@id/item_parcel_engaged_icon"/>
+            <ImageButton
+                android:id="@+id/item_parcel_share_btn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_icons8_share"
+                android:background="@android:color/white"
+                android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

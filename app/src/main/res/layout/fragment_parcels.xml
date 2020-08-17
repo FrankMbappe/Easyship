@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".controllers.fragments.ParcelsFragment"
+    android:padding="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_icons8_email_send"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/str_parcel_shipments"
+                android:fontFamily="@font/samsung_sans_bold"
+                android:textSize="25sp"
+                android:textColor="@android:color/black"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/str_list_of_ships"
+            style="@style/Level2_Text"
+            android:layout_marginTop="12dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fragment_parcels_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"
+            tools:listitem="@layout/item_shipment" />
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fragment_parcels_floating_action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:src="@drawable/ic_icons8_plus_math"
+        android:tint="@android:color/white"
+        android:layout_margin="12dp"
+        android:backgroundTint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

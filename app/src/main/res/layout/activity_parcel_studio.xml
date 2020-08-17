@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".controllers.activities.ParcelStudioActivity"
+    android:padding="24dp">
+    
+    <RelativeLayout
+        android:id="@+id/activity_add_parcel_action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/activity_add_parcel_action_bar_close_btn"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_icons8_close" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@id/activity_add_parcel_action_bar_close_btn"
+            android:fontFamily="@font/samsung_sans_bold"
+            android:text="@string/str_adding_a_parcel"
+            android:textColor="@android:color/black"
+            android:textSize="26sp" />
+
+        <ImageButton
+            android:id="@+id/activity_add_parcel_action_bar_more_btn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_icons8_menu_vertical"/>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="24dp">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="50dp">
+            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/str_fill_in_text"
+                android:fontFamily="@font/samsung_sans_regular"
+                android:textSize="15sp"
+                android:textAlignment="center"/>
+
+            <LinearLayout
+                android:id="@+id/activity_add_parcel_photo_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_photos"
+                    android:fontFamily="@font/samsung_sans_bold"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:layout_marginTop="7dp"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/activity_add_parcel_add_photo_btn"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_icons8_plus_math"
+                        android:background="@drawable/background_button_white"
+                        android:elevation="7dp"
+                        android:layout_margin="5dp"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/activity_add_parcel_photo_recyclerview"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_weight="1"
+                        tools:listitem="@layout/item_parcel_preview"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_for_safety_reasons_text"
+                    android:fontFamily="@font/samsung_sans_regular"
+                    android:textSize="15sp"
+                    android:layout_marginTop="7dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/activity_add_parcel_name_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_name"
+                    android:fontFamily="@font/samsung_sans_bold"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black"/>
+                <EditText
+                    android:id="@+id/activity_add_parcel_name_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:hint="@string/str_eg_1"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/samsung_sans_regular"
+                    android:background="@drawable/background_textbox_default"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_choose_a_name_text"
+                    android:fontFamily="@font/samsung_sans_regular"
+                    android:textSize="15sp"
+                    android:layout_marginTop="5dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/activity_add_parcel_type_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/samsung_sans_bold"
+                    android:text="@string/str_type"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/activity_add_parcel_type_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:elevation="7dp"
+                    android:fontFamily="@font/samsung_sans_regular"
+                    android:textSize="22sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/activity_add_parcel_weight_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/samsung_sans_bold"
+                    android:text="@string/str_weight"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/activity_add_parcel_weight_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:elevation="7dp"
+                    android:fontFamily="@font/samsung_sans_regular"
+                    android:textSize="22sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/activity_add_parcel_dimensions_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/samsung_sans_bold"
+                    android:text="@string/str_dimensions"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/activity_add_parcel_dimensions_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:elevation="7dp"
+                    android:fontFamily="@font/samsung_sans_regular"
+                    android:textSize="22sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/activity_add_parcel_comments_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/samsung_sans_bold"
+                    android:text="@string/str_comments"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/activity_add_parcel_comments_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:textAlignment="textStart"
+                    android:gravity="top|start"
+                    android:inputType="textMultiLine"
+                    android:overScrollMode="always"
+                    android:scrollbarStyle="insideInset"
+                    android:scrollbars="vertical"
+                    android:lines="4"
+                    android:scrollHorizontally="false"
+                    android:fontFamily="@font/samsung_sans_regular"
+                    android:hint="@string/str_describe_your_package"
+                    android:textSize="20sp"
+                    android:background="@drawable/background_textbox_default"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/activity_add_parcel_save_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/str_save"
+                style="@style/ButtonText"
+                android:background="@drawable/background_button_primary"
+                android:textColor="@android:color/white"
+                android:elevation="7dp"
+                android:layout_marginTop="24dp"
+                android:drawableStart="@drawable/ic_icons8_save"
+                android:drawableTint="@android:color/white"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</LinearLayout>

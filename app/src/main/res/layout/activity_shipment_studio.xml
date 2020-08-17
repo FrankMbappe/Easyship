@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".controllers.activities.ShipmentStudioActivity"
+    android:padding="24dp">
+
+    <RelativeLayout
+        android:id="@+id/activity_shipment_action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/activity_shipment_action_bar_close_btn"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_icons8_close" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@id/activity_shipment_action_bar_close_btn"
+            android:fontFamily="@font/samsung_sans_bold"
+            android:text="@string/str_new_shipment"
+            android:textColor="@android:color/black"
+            android:textSize="26sp" />
+
+        <ImageButton
+            android:id="@+id/activity_shipment_action_bar_save_btn"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_icons8_save"/>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/activity_shipment_action_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="50dp">
+
+            <LinearLayout
+                android:id="@+id/activity_shipment_parcels_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/activity_shipment_action_bar"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_icons8_cardboard_box"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_parcels"
+                        android:fontFamily="@font/samsung_sans_bold"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/black"/>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp">
+                    <TextView
+                        android:id="@+id/activity_shipment_number_of_saved_parcels"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/samsung_sans_light"
+                        android:text="@string/fmt_registred_packages"
+                        android:textSize="26sp"
+                        android:textColor="@android:color/black"/>
+                    <TextView
+                        android:layout_below="@id/activity_shipment_number_of_saved_parcels"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/samsung_sans_light"
+                        android:text="@string/str_tap_to_see_package_list"
+                        android:textSize="15sp"/>
+
+                    <ImageButton
+                        android:id="@+id/activity_shipment_add_parcel_btn"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_alignParentEnd="true"
+                        android:background="@drawable/ic_icons8_plus_math"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/activity_shipment_recipient_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/activity_shipment_parcels_layout"
+                android:orientation="vertical"
+                android:layout_marginTop="24dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_icons8_account"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_recipient"
+                        android:fontFamily="@font/samsung_sans_bold"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/black"/>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp">
+                    <TextView
+                        android:id="@+id/activity_shipment_recipient_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/samsung_sans_light"
+                        android:text="@string/str_not_specified"
+                        android:textSize="26sp"
+                        android:textColor="@android:color/black"/>
+
+                    <ImageButton
+                        android:id="@+id/activity_shipment_add_recipient_btn"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_alignParentEnd="true"
+                        android:background="@drawable/ic_icons8_plus_math"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/activity_shipment_destination_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/activity_shipment_recipient_layout"
+                android:orientation="vertical"
+                android:layout_marginTop="24dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_icons8_marker"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_destination"
+                        android:fontFamily="@font/samsung_sans_bold"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/black"/>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp">
+                    <TextView
+                        android:id="@+id/activity_shipment_destination_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/samsung_sans_light"
+                        android:text="@string/str_not_specified"
+                        android:textSize="26sp"
+                        android:textColor="@android:color/black"/>
+
+                    <ImageButton
+                        android:id="@+id/activity_shipment_add_destination_btn"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_alignParentEnd="true"
+                        android:background="@drawable/ic_icons8_plus_math"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/activity_shipment_deadline_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/activity_shipment_destination_layout"
+                android:orientation="vertical"
+                android:layout_marginTop="24dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_icons8_calendar"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_deadline"
+                        android:fontFamily="@font/samsung_sans_bold"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/black"/>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp">
+                    <TextView
+                        android:id="@+id/activity_shipment_deadline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/samsung_sans_light"
+                        android:text="@string/str_not_specified"
+                        android:textSize="26sp"
+                        android:textColor="@android:color/black"/>
+
+                    <ImageButton
+                        android:id="@+id/activity_shipment_add_deadline_btn"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_alignParentEnd="true"
+                        android:background="@drawable/ic_icons8_plus_math"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/activity_shipment_horizontal_separator"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@drawable/draw_separator"
+                app:layout_constraintTop_toBottomOf="@id/activity_shipment_deadline_layout"
+                android:layout_marginTop="20dp"/>
+
+
+            <LinearLayout
+                android:id="@+id/activity_shipment_price_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/activity_shipment_horizontal_separator"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_icons8_us_dollar"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_price"
+                        android:fontFamily="@font/samsung_sans_bold"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/black"/>
+                </LinearLayout>
+                <EditText
+                    android:id="@+id/activity_shipment_price_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:text="0"
+                    android:textSize="28sp"
+                    android:background="@drawable/background_textbox_default"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/activity_shipment_description_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/activity_shipment_price_layout"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_icons8_comments"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_details"
+                        android:fontFamily="@font/samsung_sans_bold"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/black"/>
+                </LinearLayout>
+                <EditText
+                    android:id="@+id/activity_shipment_details_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:textAlignment="textStart"
+                    android:gravity="top|start"
+                    android:inputType="textMultiLine"
+                    android:overScrollMode="always"
+                    android:scrollbarStyle="insideInset"
+                    android:scrollbars="vertical"
+                    android:lines="6"
+                    android:scrollHorizontally="false"
+                    android:fontFamily="@font/samsung_sans_regular"
+                    android:hint="@string/str_fill_in_details_text"
+                    android:textSize="20sp"
+                    android:background="@drawable/background_textbox_default"/>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/activity_shipment_horizontal_separator_2"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@drawable/draw_separator"
+                app:layout_constraintTop_toBottomOf="@id/activity_shipment_deadline_layout"
+                android:layout_marginTop="24dp"/>
+
+            <Button
+                android:id="@+id/activity_shipment_find_carrier_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/str_find_a_carrier"
+                style="@style/ButtonText"
+                android:background="@drawable/background_button_primary"
+                android:textColor="@android:color/white"
+                android:elevation="2dp"
+                android:layout_marginTop="24dp"
+                android:drawableStart="@drawable/ic_icons8_delivery"
+                android:drawableTint="@android:color/white"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

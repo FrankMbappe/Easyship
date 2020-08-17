@@ -1,0 +1,36 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="fontFamily">@font/samsung_sans_regular</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <!-- STYLES DE TEXTE -->
+    <style name="RegularText">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="fontFamily">@font/samsung_sans_regular</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="ButtonText">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">24sp</item>
+        <item name="fontFamily">@font/samsung_sans_medium</item>
+        <item name="textAllCaps">false</item>
+    </style>
+    <style name="Level1_Text">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">40sp</item>
+        <item name="fontFamily">@font/samsung_sans_medium</item>
+    </style>
+    <style name="Level2_Text">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">22sp</item>
+        <item name="fontFamily">@font/samsung_sans_medium</item>
+        <item name="textAllCaps">false</item>
+    </style>
+</resources>

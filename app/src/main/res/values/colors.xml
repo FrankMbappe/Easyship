@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#5F73F8</color>
+    <color name="colorPrimaryDark">#4150AE</color>
+    <color name="colorAccent">#FF0E76</color>
+
+    <color name="white">#FFF</color>
+    <color name="black">#000</color>
+    <color name="colorDefaultText">#6D6D6D</color>
+    <color name="colorBackShipStatus_0">#EEEEEE</color>
+    <color name="colorBackShipStatus_1">#17BC23</color>
+    <color name="colorBackShipStatus_2">#FF5252</color>
+    <color name="colorBackShipStatus_3">#459CF3</color>
+</resources>
