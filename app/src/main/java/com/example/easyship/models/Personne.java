@@ -1,11 +1,13 @@
 package com.example.easyship.models;
 
+import android.net.Uri;
+
 public class Personne {
     String nom;
     String prenom;
     Long telephone;
     Adresse adresse;
-    int photo;
+    String photoUri;
 
     public Personne() {
 
@@ -18,12 +20,14 @@ public class Personne {
         this.adresse = adresse;
     }
 
-    public Personne(String nom, String prenom, Long telephone, Adresse adresse, int photo) {
+    public Personne(String nom, String prenom, Long telephone, Adresse adresse, Uri photoUri) {
         this.nom = nom;
         this.prenom = prenom;
         this.telephone = telephone;
         this.adresse = adresse;
-        this.photo = photo;
+        if(photoUri != null){
+            this.photoUri = photoUri.toString();
+        }
     }
 
     public String getNom() {
@@ -62,11 +66,14 @@ public class Personne {
         this.adresse = adresse;
     }
 
-    public int getPhoto() {
-        return photo;
+    public Uri getPhotoUri() {
+        if(photoUri != null){
+            return Uri.parse(photoUri);
+        }
+        return null;
     }
 
-    public void setPhoto(int photo) {
-        this.photo = photo;
+    public void setPhotoUri(Uri photoUri) {
+        this.photoUri = photoUri.toString();
     }
 }

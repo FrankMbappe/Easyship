@@ -66,7 +66,8 @@ public class ShipmentRVAdapter extends RecyclerView.Adapter<ShipmentRVAdapter.Vi
         holder.mAdresseDestination.setText(livraisonActive.getDestination().toString());
 
         // Nom du transporteur
-        holder.mNomTransporteur.setText(livraisonActive.getTransporteur().getNomComplet());
+        // TODO: Retourner le nom du transporteur à la place de son Uid
+        holder.mNomTransporteur.setText(livraisonActive.getUidTransporteur());
 
         // Layout
         holder.mLayout.setOnClickListener(new View.OnClickListener() {

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileSetupActivity"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <RelativeLayout
+        android:id="@+id/activity_profile_setup_action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/activity_profile_setup_action_bar_close_btn"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_icons8_close" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@id/activity_profile_setup_action_bar_close_btn"
+            android:fontFamily="@font/samsung_sans_bold"
+            android:text="@string/str_edit_your_profile"
+            android:textColor="@android:color/black"
+            android:textSize="26sp" />
+
+        <ImageButton
+            android:id="@+id/activity_profile_setup_action_bar_more_btn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_icons8_menu_vertical"/>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="50dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Edit informations that need to be edited."
+                android:fontFamily="@font/samsung_sans_regular"
+                android:textSize="15sp"
+                android:textAlignment="center"/>
+
+            <RelativeLayout
+                android:id="@+id/activity_profile_setup_photo_layout"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:layout_marginTop="21dp">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/activity_profile_setup_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/emmanuel_kom_ii"
+                    android:background="@drawable/background_rounded_default"/>
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:src="#4D000000"/>
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_icons8_camera"
+                    app:tint="@color/white"
+                    android:layout_centerInParent="true"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/activity_profile_setup_first_name_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_first_name"
+                    android:fontFamily="@font/samsung_sans_bold"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black"/>
+                <EditText
+                    android:id="@+id/activity_profile_setup_first_name_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:hint="@string/str_first_name"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/samsung_sans_regular"
+                    android:background="@drawable/background_textbox_default"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/activity_profile_setup_last_name_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_last_name"
+                    android:fontFamily="@font/samsung_sans_bold"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black"/>
+                <EditText
+                    android:id="@+id/activity_profile_setup_last_name_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:hint="@string/str_last_name"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/samsung_sans_regular"
+                    android:background="@drawable/background_textbox_default"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/activity_profile_setup_gender_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/samsung_sans_bold"
+                    android:text="@string/str_gender"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/activity_profile_setup_gender_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:elevation="7dp"
+                    style="@style/SpinnerTheme"
+                    android:fontFamily="@font/samsung_sans_regular"
+                    android:textSize="22sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/activity_profile_setup_birth_date_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/samsung_sans_bold"
+                    android:text="@string/str_birth_date"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/activity_profile_setup_birth_date_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:text="1985, January 18"
+                    android:textAllCaps="false"
+                    android:textAlignment="textStart"
+                    android:padding="10dp"
+                    android:background="@color/white"
+                    android:drawableEnd="@drawable/ic_icons8_calendar"
+                    android:fontFamily="@font/samsung_sans_regular"
+                    android:textSize="22sp"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

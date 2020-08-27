@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "88390388400",
+    "firebase_url": "https://easyship-aaabb.firebaseio.com",
+    "project_id": "easyship-aaabb",
+    "storage_bucket": "easyship-aaabb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:88390388400:android:489aec1d536ddd6b820975",
+        "android_client_info": {
+          "package_name": "com.example.easyship"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "88390388400-s592birk61b1pi3968ojuuq799f7sgi6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.easyship",
+            "certificate_hash": "4857f6b3f704423832dc2b18c910f5cacca657af"
+          }
+        },
+        {
+          "client_id": "88390388400-jt4mmkmn2l15hksrh02rt4q05f20bndf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDitROxl2Yu84zu02HvumEzYTvkq02cdDo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "88390388400-jt4mmkmn2l15hksrh02rt4q05f20bndf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

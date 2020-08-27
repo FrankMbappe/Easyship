@@ -14,9 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.easyship.R;
-import com.example.easyship.application.Easyship;
-import com.example.easyship.models.Colis;
 import com.example.easyship.models.Livraison;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -44,7 +43,7 @@ public class ParcelRVAdapter extends RecyclerView.Adapter<ParcelRVAdapter.ViewHo
         final Livraison livraisonActive = mLivraisons.get(position);
 
         // Image
-        holder.mImage.setImageResource(livraisonActive.getColis().get(0).getIdImage());
+        Picasso.get().load(livraisonActive.getColis().get(0).getPhotoUri()).into(holder.mImage);
 
         // Nom
         holder.mNom.setText(livraisonActive.getColis().get(0).getNom());

@@ -68,7 +68,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/str_tap_the_plus_button_text"
+            android:text="@string/str_parcel_tap_the_plus_button_text"
             android:textAlignment="center"
             android:fontFamily="@font/samsung_sans_light"
             android:textSize="18sp"

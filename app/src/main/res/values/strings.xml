@@ -80,6 +80,19 @@
     <string name="str_done">Done</string>
     <string name="fmt_fcfa">%d FCFA</string>
     <string name="str_no_registered_package">No registered package</string>
-    <string name="str_tap_the_plus_button_text">Press the \"+\" to add a package to this delivery.</string>
+    <string name="str_parcel_tap_the_plus_button_text">Press the \"+\" to add a new package in this delivery.</string>
+    <string name="str_tap_to_choose_another_picture">Tap to choose another picture.</string>
+    <string name="err_required_field">This field is required.</string>
+    <string name="notif_welcome">Welcome on EasyShip !</string>
+    <string name="str_first_name">First name</string>
+    <string name="str_last_name">Last name</string>
+    <string name="str_gender">Gender</string>
+    <string name="str_birth_date">Birth date</string>
+    <string name="str_region">Region</string>
+    <string name="str_city">City</string>
+    <string name="str_disctrict">District</string>
+    <string name="str_validate">Validate</string>
+    <string name="str_shipment_tap_the_plus_button_text">Press the \"+\" to initiate a new parcel shipment.</string>
+    <string name="str_no_shipment_recorded">No shipment recorded</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

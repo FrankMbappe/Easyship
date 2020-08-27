@@ -79,5 +79,18 @@
     <string name="str_done">Effectuée</string>
     <string name="fmt_fcfa">%d FCFA</string>
     <string name="str_no_registered_package">Pas de colis enregistré</string>
-    <string name="str_tap_the_plus_button_text">Appuyez sur le \"+\" pour ajouter un colis à cette livraison.</string>
+    <string name="str_parcel_tap_the_plus_button_text">Appuyez sur le \"+\" pour ajouter un colis à cette livraison.</string>
+    <string name="str_tap_to_choose_another_picture">Appuyez pour choisir une autre image.</string>
+    <string name="err_required_field">Ce champ est obligatoire.</string>
+    <string name="notif_welcome">Bienvenue sur Easyship !</string>
+    <string name="str_first_name">Prénom</string>
+    <string name="str_last_name">Nom</string>
+    <string name="str_gender">Genre</string>
+    <string name="str_birth_date">Date de naissance</string>
+    <string name="str_region">Région</string>
+    <string name="str_city">Ville</string>
+    <string name="str_disctrict">Quartier</string>
+    <string name="str_validate">Valider</string>
+    <string name="str_shipment_tap_the_plus_button_text">Appuyez sur le \"+\" pour initier une nouvelle livraison de colis.</string>
+    <string name="str_no_shipment_recorded">Aucune livraison enregistrée</string>
 </resources>

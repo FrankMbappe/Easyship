@@ -23,6 +23,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.easyship.ProfileSetupActivity" />
         <activity android:name="com.example.easyship.controllers.activities.ParcelStudioActivity" />
         <activity android:name="com.example.easyship.controllers.activities.IncludedParcelsActivity" />
         <activity android:name="com.example.easyship.controllers.activities.ShipmentStudioActivity" />
@@ -34,6 +35,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="com.squareup.picasso.PicassoProvider"
+            android:authorities="com.example.easyship.com.squareup.picasso"
+            android:exported="false" />
 
         <service
             android:name="com.google.firebase.components.ComponentDiscoveryService"

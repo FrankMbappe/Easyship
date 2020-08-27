@@ -1,8 +1,9 @@
 package com.example.easyship.models;
 
-import android.graphics.Bitmap;
+import android.net.Uri;
 
-import java.util.ArrayList;
+import androidx.annotation.Nullable;
+
 import java.util.Calendar;
 
 public class Colis {
@@ -12,22 +13,32 @@ public class Colis {
     int type;   // 0= Autres, 1= Documents, 2= Vêtements, 3= Clés, 4= Livres, 5= Bijoux, 6= Appareils électroniques
     int poids;   // 0= Inconnu ou approximatif, 1= 0-500g, 2= 500g-1Kg, 3= 1Kg-2Kg, 4= Plus de 2Kg
     int dimension;   //0= Petit, 1= Moyen, 2= Grand, 3= Très grand
-    int idImage;
+    String photoUri;
     String commentaires;
 
     public Colis() {
 
     }
 
-    public Colis(String id, Calendar dateCreation, String nom, int type, int poids, int dimension, int idImage, String commentaires) {
+    public Colis(String id, Calendar dateCreation, String nom, int type, int poids, int dimension, Uri photoUri, String commentaires) {
         this.id = id;
         this.dateCreation = dateCreation;
         this.nom = nom;
         this.type = type;
         this.poids = poids;
         this.dimension = dimension;
-        this.idImage = idImage;
+        if(photoUri != null){
+            this.photoUri = photoUri.toString();
+        }
         this.commentaires = commentaires;
+    }
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        if(obj != null && obj.getClass() == Colis.class){
+            return id.toLowerCase().equals( ((Colis) obj).getId().toLowerCase() );
+        }
+        return false;
     }
 
     public String getId() {
@@ -78,12 +89,15 @@ public class Colis {
         this.dimension = dimension;
     }
 
-    public int getIdImage() {
-        return idImage;
+    public Uri getPhotoUri() {
+        if(photoUri != null){
+            return Uri.parse(photoUri);
+        }
+        return null;
     }
 
-    public void setIdImage(int idImage) {
-        this.idImage = idImage;
+    public void setPhotoUri(Uri photoUri) {
+        this.photoUri = photoUri.toString();
     }
 
     public String getCommentaires() {

@@ -4,27 +4,42 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.example.easyship.R;
+import com.example.easyship.application.Easyship;
 import com.example.easyship.controllers.fragments.DeliverFragment;
 import com.example.easyship.controllers.fragments.HomeFragment;
 import com.example.easyship.controllers.fragments.NotificationsFragment;
 import com.example.easyship.controllers.fragments.ParcelsFragment;
+import com.example.easyship.data.test.Utilisateurs;
+import com.example.easyship.models.Utilisateur;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";
+    private Utilisateur utilisateurActif;
+    private Easyship es;
+
     private BottomNavigationView mBottomNav;
-    ImageButton mBtnMore;
+    private ImageView mUserProfilePhoto;
+    private ImageButton mBtnMore;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        es = new Easyship(this);
+        es.initApp();
 
         binding();
         init();
@@ -32,10 +47,36 @@ public class MainActivity extends AppCompatActivity {
 
     void binding(){
         mBottomNav = findViewById(R.id.activity_main_bottom_navigation);
+        mBtnMore = findViewById(R.id.activity_main_more_btn);
+        mUserProfilePhoto = findViewById(R.id.activity_main_user_photo);
     }
 
     void init(){
         initBottomNavBar();
+
+        utilisateurActif = (Utilisateur) es.getObjectFromSharedPreferences(Easyship.EASYSHIP_ACTIVE_USER, Utilisateur.class);
+
+        if(utilisateurActif != null){
+            remplissageDesChamps(utilisateurActif);
+        }
+
+        mUserProfilePhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+            }
+        });
+    }
+
+    private void remplissageDesChamps(Utilisateur utilisateurActif) {
+        if(utilisateurActif != null){
+            if(utilisateurActif.getPhotoUri() != null){
+                Picasso.get().load(utilisateurActif.getPhotoUri()).into(mUserProfilePhoto);
+            }
+            else{
+                mUserProfilePhoto.setImageDrawable(null);
+            }
+        }
     }
 
     public void initBottomNavBar() {

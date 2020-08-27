@@ -1,5 +1,7 @@
 package com.example.easyship.models;
 
+import android.net.Uri;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -11,11 +13,12 @@ public class Utilisateur extends Personne {
     private int noteGenerale; // Moyenne des notes attribuées
     private int caps; // Le nombre de livraisons effectuées à partir de l'application
     private ArrayList<Notification> notifications;
+    private ArrayList<Livraison> operations;
 
     public Utilisateur() {
     }
 
-    public Utilisateur(String nom, String prenom, Long telephone, Adresse adresse, String id, Calendar date, String email, String motDePasse, int noteGenerale, int caps, ArrayList<Notification> notifications) {
+    public Utilisateur(String nom, String prenom, Long telephone, Adresse adresse, String id, Calendar date, String email, String motDePasse, int noteGenerale, int caps, ArrayList<Notification> notifications, ArrayList<Livraison> operations) {
         super(nom, prenom, telephone, adresse);
         this.id = id;
         this.date = date;
@@ -24,9 +27,10 @@ public class Utilisateur extends Personne {
         this.noteGenerale = noteGenerale;
         this.caps = caps;
         this.notifications = notifications;
+        this.operations = operations;
     }
 
-    public Utilisateur(String nom, String prenom, Long telephone, Adresse adresse, int photo, String id, Calendar date, String email, String motDePasse, int noteGenerale, int caps, ArrayList<Notification> notifications) {
+    public Utilisateur(String nom, String prenom, Long telephone, Adresse adresse, Uri photo, String id, Calendar date, String email, String motDePasse, int noteGenerale, int caps, ArrayList<Notification> notifications, ArrayList<Livraison> operations) {
         super(nom, prenom, telephone, adresse, photo);
         this.id = id;
         this.date = date;
@@ -35,6 +39,7 @@ public class Utilisateur extends Personne {
         this.noteGenerale = noteGenerale;
         this.caps = caps;
         this.notifications = notifications;
+        this.operations = operations;
     }
 
     public String getId() {

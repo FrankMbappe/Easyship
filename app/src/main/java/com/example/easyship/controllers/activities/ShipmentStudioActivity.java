@@ -29,7 +29,7 @@ import java.util.ArrayList;
 public class ShipmentStudioActivity extends AppCompatActivity {
     public static final String TAG = "ShipmentStudioActivity";
     public static final String EXTRA_LIVRAISON = "EXTRA_LIVRAISON";
-    private static final int LAUNCH_PARCELS_ACTIVITY = 1;
+    private static final int REQ_LAUNCH_PARCELS_ACTIVITY = 1;
     private Livraison extraLivraison;
 
     private ImageButton mBtnFermer;
@@ -62,7 +62,7 @@ public class ShipmentStudioActivity extends AppCompatActivity {
         Log.d(TAG, "onActivityResult(): La méhode a été appelée");
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == LAUNCH_PARCELS_ACTIVITY) {
+        if (requestCode == REQ_LAUNCH_PARCELS_ACTIVITY) {
             if(resultCode == Activity.RESULT_OK){
                 if(data != null){
                     Log.d(TAG, "onActivityResult(): L'activité a reçu un résultat non nul");
@@ -73,10 +73,21 @@ public class ShipmentStudioActivity extends AppCompatActivity {
 
                     // Une fois la chaîne en Json convertie en ArrayList<Colis>, je met à jour l'interface
                     ArrayList<Colis> listeColis = gson.fromJson(jsonResult, typeListeColis);
+                    Log.d(TAG, "onActivityResult(): La liste des colis a " + listeColis.size() + " colis.");
+
                     extraLivraison.setColis(listeColis);
                     remplissageDesChamps(extraLivraison);
                 }
+                else{
+                    Log.d(TAG, "onActivityResult(): Le résultat est nul");
+                }
             }
+            else{
+                Log.d(TAG, "onActivityResult(): Le code du résultat n'est pas OK");
+            }
+        }
+        else{
+            Log.d(TAG, "onActivityResult(): Le code de la requête n'est pas LAUNCH...");
         }
     }
 
@@ -98,7 +109,7 @@ public class ShipmentStudioActivity extends AppCompatActivity {
                 // Je convertis l'objet en String grâce à Gson et je l'envoie à l'autre activité avec un putExtra
                 Gson gson = new GsonBuilder().create();
                 intent.putExtra(IncludedParcelsActivity.EXTRA_LISTE_COLIS, gson.toJson(extraLivraison.getColis()));
-                ShipmentStudioActivity.this.startActivityForResult(intent, LAUNCH_PARCELS_ACTIVITY);
+                startActivityForResult(intent, REQ_LAUNCH_PARCELS_ACTIVITY);
             }
         });
 

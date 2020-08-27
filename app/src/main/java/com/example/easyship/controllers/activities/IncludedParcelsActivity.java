@@ -27,7 +27,7 @@ import java.util.ArrayList;
 public class IncludedParcelsActivity extends AppCompatActivity {
     public static final String TAG = "IncludedParcelsActivity";
     public static final String EXTRA_LISTE_COLIS = "EXTRA_LISTE_COLIS";
-    public static final int LAUNCH_PARCEL_STUDIO_ACTIVITY = 2;
+    public static final int REQ_LAUNCH_PARCEL_STUDIO_ACTIVITY = 2;
     private ArrayList<Colis> extraListeColis;
 
     private ImageButton mBtnFermer;
@@ -47,27 +47,11 @@ public class IncludedParcelsActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onDestroy() {
-        Log.d(TAG, "onDestroy(): La méhode a été appelée");
-
-        // Si l'activité est entrain d'être détruite je passe la liste de colis à l'activité précédente
-        if(isFinishing()){
-            Log.d(TAG, "onDestroy(): La méthode onFinish() a été appelée.");
-            Intent returnIntent = new Intent();
-
-            Gson gson = new GsonBuilder().create();
-            returnIntent.putExtra(EXTRA_LISTE_COLIS, gson.toJson(extraListeColis));
-            setResult(Activity.RESULT_OK, returnIntent);
-        }
-        super.onDestroy();
-    }
-
-    @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         Log.d(TAG, "onActivityResult(): La méhode a été appelée");
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == LAUNCH_PARCEL_STUDIO_ACTIVITY) {
+        if (requestCode == REQ_LAUNCH_PARCEL_STUDIO_ACTIVITY) {
             if(resultCode == Activity.RESULT_OK){
                 if(data != null){
                     Log.d(TAG, "onActivityResult(): L'activité a reçu un résultat non nul");
@@ -77,7 +61,11 @@ public class IncludedParcelsActivity extends AppCompatActivity {
 
                     // Une fois la chaîne en Json convertie en colis, je met à jour l'interface
                     Colis colis = gson.fromJson(jsonResult, Colis.class);
-                    extraListeColis.add(colis);
+                    if(extraListeColis.contains(colis)){
+                        extraListeColis.set(extraListeColis.indexOf(colis), colis);
+                    }else {
+                        extraListeColis.add(colis);
+                    }
                     remplissageDesChamps(extraListeColis);
                 }
             }
@@ -85,6 +73,17 @@ public class IncludedParcelsActivity extends AppCompatActivity {
                 Log.d(TAG, "onActivityResult(): Le résultat a été annulé.");
             }
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Log.d(TAG, "onBackPressed(): La méthode a été appelée.");
+        Intent returnIntent = new Intent();
+
+        Gson gson = new GsonBuilder().create();
+        returnIntent.putExtra(EXTRA_LISTE_COLIS, gson.toJson(extraListeColis));
+        setResult(Activity.RESULT_OK, returnIntent);
+        finish();
     }
 
     void binding(){
@@ -98,14 +97,14 @@ public class IncludedParcelsActivity extends AppCompatActivity {
         mBtnFermer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                onBackPressed();
             }
         });
         mBtnAjouterColis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(IncludedParcelsActivity.this, ParcelStudioActivity.class);
-                startActivityForResult(intent, LAUNCH_PARCEL_STUDIO_ACTIVITY);
+                startActivityForResult(intent, REQ_LAUNCH_PARCEL_STUDIO_ACTIVITY);
             }
         });
     }

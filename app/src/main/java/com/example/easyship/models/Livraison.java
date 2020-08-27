@@ -13,9 +13,9 @@ public class Livraison {
     int statut; // 0= Initialisée, 1= En cours, 2= Annulée, 3= Terminée
     Adresse origine;
     Adresse destination;
-    Utilisateur expediteur;
+    String uidExpediteur;
     ArrayList<Colis> colis;
-    Utilisateur transporteur;
+    String uidTransporteur;
     Personne destinataire;
     Calendar dateEcheance;
     int prix;
@@ -25,7 +25,7 @@ public class Livraison {
 
     }
 
-    public Livraison(String uid, int id, Calendar dateCreation, Calendar dateDebut, Calendar dateFin, int codeValidation, int statut, Adresse origine, Adresse destination, Utilisateur expediteur, ArrayList<Colis> colis, Utilisateur transporteur, Personne destinataire, Calendar dateEcheance, int prix, String details) {
+    public Livraison(String uid, int id, Calendar dateCreation, Calendar dateDebut, Calendar dateFin, int codeValidation, int statut, Adresse origine, Adresse destination, String uidExpediteur, ArrayList<Colis> colis, String uidTransporteur, Personne destinataire, Calendar dateEcheance, int prix, String details) {
         this.uid = uid;
         this.id = id;
         this.dateCreation = dateCreation;
@@ -35,9 +35,9 @@ public class Livraison {
         this.statut = statut;
         this.origine = origine;
         this.destination = destination;
-        this.expediteur = expediteur;
+        this.uidExpediteur = uidExpediteur;
         this.colis = colis;
-        this.transporteur = transporteur;
+        this.uidTransporteur = uidTransporteur;
         this.destinataire = destinataire;
         this.dateEcheance = dateEcheance;
         this.prix = prix;
@@ -134,12 +134,12 @@ public class Livraison {
         this.destination = destination;
     }
 
-    public Utilisateur getExpediteur() {
-        return expediteur;
+    public String getUidExpediteur() {
+        return uidExpediteur;
     }
 
-    public void setExpediteur(Utilisateur expediteur) {
-        this.expediteur = expediteur;
+    public void setUidExpediteur(String uidExpediteur) {
+        this.uidExpediteur = uidExpediteur;
     }
 
     public ArrayList<Colis> getColis() {
@@ -150,12 +150,12 @@ public class Livraison {
         this.colis = colis;
     }
 
-    public Utilisateur getTransporteur() {
-        return transporteur;
+    public String getUidTransporteur() {
+        return uidTransporteur;
     }
 
-    public void setTransporteur(Utilisateur transporteur) {
-        this.transporteur = transporteur;
+    public void setUidTransporteur(String uidTransporteur) {
+        this.uidTransporteur = uidTransporteur;
     }
 
     public Personne getDestinataire() {

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.easyship.R;
 import com.example.easyship.application.Easyship;
 import com.example.easyship.models.Notification;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -42,10 +43,10 @@ public class NotificationsRVAdapter extends RecyclerView.Adapter<NotificationsRV
         final Notification notificationActive = mNotifications.get(position);
 
         // Texte
-        holder.mText.setText(mContext.getString(notificationActive.getIdTexte()));
+        holder.mText.setText(notificationActive.getTexte());
 
         // Image
-        holder.mImage.setImageResource(notificationActive.getImage());
+        Picasso.get().load(notificationActive.getImage()).into(holder.mImage);
 
         // Date
         String date = String.format(mContext.getString(R.string.fmt_date_at_hour), Easyship.getDateFromCalendar(notificationActive.getDate()), Easyship.getTimeFromCalendar(notificationActive.getDate()));
